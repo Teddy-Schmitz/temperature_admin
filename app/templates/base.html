@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>Temperature Admin</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="{{ url_for('static', filename='admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='admin/css/skins/skin-blue.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Chart.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Chart.Scatter.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='plugins/jQuery/jQuery-2.1.4.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='plugins/fastclick/fastclick.js') }}" ></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='admin/js/app.js') }}" ></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    {% endblock %}
+</head>
+  <body data-spy="scroll" data-target="#sidebar" class="skin-blue sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="{{ url_for('.index') }}" class="logo">
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Temperature Admin</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside  class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar" style="height: auto">
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <!-- Optionally, you can add icons to the links -->
+            <li id="dashboard"><a href="{{ url_for('.index') }}"><i class='fa fa-home'></i> <span>Dashboard</span></a></li>
+            <li id="users"><a href="{{ url_for('.users') }}"><i class='fa fa-users'></i> <span>Users</span></a></li>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Dashboard
+          </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            {% block content %} {% endblock %}
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <!-- Default to the left -->
+        <strong><a href="https://github.com/Teddy-Schmitz/temperature_admin">Find me on Github</a>.</strong>
+      </footer>
+    </div><!-- ./wrapper -->
+
+</body>
+</html>
