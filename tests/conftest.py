@@ -19,7 +19,8 @@ def app(request):
     test_config = {
         'SQLALCHEMY_DATABASE_URI': TESTDB_URI,
         'TESTING': True,
-        'SCHEDULER': False
+        'SCHEDULER': False,
+        'ARDUINO_IP': '127.0.0.1'
     }
     test_app = create_app(test_config)
     ctx = test_app.app_context()

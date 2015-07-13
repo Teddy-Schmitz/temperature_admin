@@ -10,7 +10,10 @@ def create_app(config=None):
     app.config['DEBUG'] = False
     app.config['SERVER_IP'] = '127.0.0.1'
     app.config['SERVER_PORT'] = 5000
-    app.config.from_object('config')
+    try:
+        app.config.from_object('config')
+    except ImportError:
+        print('No config set')
     if config is not None:
         app.config.update(config)
     register_extensions(app)

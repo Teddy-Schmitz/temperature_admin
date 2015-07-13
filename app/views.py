@@ -136,7 +136,8 @@ def send_power_on():
         description = request.json.get('description', None) or 'website on'
     else:
         description = 'website on'
-    if arduino.turn_on():
+    resp = arduino.turn_on()
+    if resp.get('return_value', 0) == 1:
         Event.create_event(EventType.on, description)
         return 'OK', 200
     return 'Error', 500
@@ -149,7 +150,8 @@ def send_power_off():
         description = request.json.get('description') or 'website off'
     else:
         description = 'website off'
-    if arduino.turn_off():
+    resp = arduino.turn_off()
+    if resp.get('return_value', 0) == 1:
         Event.create_event(EventType.off, description)
         return 'OK', 200
     return 'Error', 500

@@ -160,7 +160,7 @@ def test_create_user_failure(test_client, fake_users):
     assert user is None
 
 
-@pytest.mark.json_data('{ "Good data": "asdfa"}')
+@pytest.mark.json_data('{ "return_value": 1}')
 def test_power_on(test_client, fake_users, arduino):
     auth_string = base64.b64encode('test_user:test_password')
     header = {'Authorization': 'Basic ' + auth_string}
@@ -171,7 +171,7 @@ def test_power_on(test_client, fake_users, arduino):
     assert event.event == EventType.on
 
 
-@pytest.mark.json_data('{ "Good data": "asdfa"}')
+@pytest.mark.json_data('{ "return_value": 1}')
 def test_power_off(test_client, fake_users, arduino):
     auth_string = base64.b64encode('test_user:test_password')
     header = {'Authorization': 'Basic ' + auth_string}
@@ -182,7 +182,7 @@ def test_power_off(test_client, fake_users, arduino):
     assert event.event == EventType.off
 
 
-@pytest.mark.json_data('{ "bad data": }')
+@pytest.mark.json_data('{ "return_value": 0}')
 def test_power_on_failure(test_client, fake_users, arduino):
     auth_string = base64.b64encode('test_user:test_password')
     header = {'Authorization': 'Basic ' + auth_string}
@@ -193,7 +193,7 @@ def test_power_on_failure(test_client, fake_users, arduino):
     assert event is None
 
 
-@pytest.mark.json_data('{ "bad data": }')
+@pytest.mark.json_data('{ "return_value": 0}')
 def test_power_off_failure(test_client, fake_users, arduino):
     auth_string = base64.b64encode('test_user:test_password')
     header = {'Authorization': 'Basic ' + auth_string}
