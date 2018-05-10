@@ -1,4 +1,4 @@
-#Temperature Administrator
+# Temperature Administrator
 Version 1.0
 
 
@@ -6,7 +6,7 @@ Version 1.0
 
 
 [![Build Status](https://travis-ci.org/Teddy-Schmitz/temperature_admin.svg?branch=master)](https://travis-ci.org/Teddy-Schmitz/temperature_admin)
-###Overview
+### Overview
 
 A control panel to view the temperature and humidity of a location as well as the ability to control an A/C unit.  Generally the data as well as the ability to control is provided by an Arduino with a sensor and iR system but can be any system that supports json or http requests.
 
